@@ -1,0 +1,986 @@
+<!doctype html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="icon" href="/media/mk.png">
+        <title>{% block title %}{% endblock %} | Mark </title>
+
+        <!-- <a href="/" class="text-xl font-semibold"><img src="/media/mk.png"></a> -->
+    </head>
+    <style>
+
+        .sec-1{
+            position: relative;
+            width:100%;
+            height: 250px;
+            box-sizing: border-box;
+        }
+        .slide img{
+            width: 1000px;
+            height: 100%;
+        }
+        .container{
+            position: relative;
+            width:100%;
+            height: auto;
+        }
+        .slider{
+            width:100%;
+            overflow: hidden;
+            position: relative;
+            height: 225px;
+        }
+        .image-box{
+            display: flex;
+            position: absolute;
+            animation: carousel 15s alternate infinite;
+        }
+        @keyframes carousel{
+            0%{
+                left:0;
+            }
+            20%{
+                left:0%;
+            }
+            24%{
+                left:-1380px;
+            }
+            50%{
+                left:-1380px;
+            }
+            54%{
+                left:calc(-1380*2px);
+            }
+            80%{
+                left:calc(-1380*2px);
+            }
+            84%{
+                left:calc(-1380*3px);
+            }
+            100%{
+                left:calc(-1380*3px);
+            }
+        }
+        .container-1{
+            position:absolute;
+            z-index:1;
+            top:240px;
+            width:100%;
+            left:0;
+            padding:20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background:linear-gradient(to bottom, transparent, #eaeded 30%);
+        }
+        .container-1 .para{
+            background-color: rgb(238,234,234);
+            width:100%;
+            text-align: center;
+        }
+        .container-1 div:first-child p{
+            font-size: 14px;
+            padding:10px 0;
+        }
+        .product-comp{
+            width:100%;
+            height:100%;
+            display: flex;
+            box-sizing: border-box;
+            margin:20px 0;
+            justify-content: space-around;
+        }
+        .product-comp .box{
+            width:335px;
+            height:400px;
+            background-color: white;
+        }
+        .box h3{
+            margin-top: 20px;
+            margin-left: 20px;
+            font-size: 20px;
+            margin-bottom: 10px;
+            color:rgb(43,42,42);
+        }
+        .box a{
+            margin-left:4px;
+            padding:10px;
+        }
+
+        .box-a{
+            overflow: hidden;
+            background-color: white;
+        }
+        .box div img{
+            width:165px;
+            height:100px;
+            cursor: pointer;
+            margin-left: -14%;
+            margin-right: 0;
+        }
+        .box-a div{
+            display: inline-block;
+        }
+        .box-a div span{
+            display:block;
+            font-size: 13px;
+            margin-left: 20px;
+            font-weight: bold;
+        }
+        .box-b{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .box-b .best{
+            background-color: white;
+            height:140px;
+            width:300px;
+        }
+        .best h3{
+            font-size: 20px;
+            margin: 20px;
+            margin-bottom: 15px;
+        }
+        .best button{
+            border-radius: 5px;
+            box-shadow: 1px 2px 2px rgb(211,207,207);
+            color: rgb(43,42,42);
+            background-color: #ffd814;
+            width:270px;
+            height:27px;
+            margin-left: 12px;
+            border:none;
+        }
+        .box.box-c img{
+            margin:0 20px;
+            height:260px;
+            width:290px;
+            cursor: pointer;
+        }
+        .sec-2{
+            width:100%;
+            height:315px;
+            padding:25px;
+            padding-top:0;
+            padding-bottom: 25px;
+        }
+        .sec-2 h3{
+            font-size: 20px;
+            padding-bottom: 5px;
+            margin-top:5px;
+        }
+        .slide-sec{
+            height: 100%;
+            width:100%;
+            padding:35px;
+            overflow-x: hidden;
+            background-color: white;
+            position: relative;
+            margin-top: 20px;
+            margin-bottom: 25px;
+        }
+        .product-slide{
+            display: flex;
+            margin-top: 10px;
+            overflow-x: scroll;
+            scroll-behavior: smooth;
+        }
+        .product-slide::-webkit-scrollbar{
+            background-color: transparent;
+            height:7px; 
+            cursor: pointer;
+        }
+        .product-slide::-webkit-scrollbar-thumb{
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .product-slide li{
+            list-style: none;
+            margin-right: 10px;
+            margin-bottom: 15px;
+            cursor: pointer;
+        }
+        .l-btn, 
+        .r-btn{
+            background-color: rgb(255,255,255,1);
+            height:90px;
+            width:50px;
+            text-align: center;
+            cursor:pointer;
+            top:50%;
+            position: absolute; 
+            border:2px solid transparent; 
+        }
+        .l-btn{
+            border-radius: 0 5px 5px 0;
+            left:10px;
+        }
+        .r-btn{
+            border-radius: 5px 0 0 5px;
+            right:10px;
+        }
+        .l-btn:hover{
+            border: 3px solid rgb(2,150,150);
+        }
+        .r-btn:hover{
+            border: 3px solid rgb(2,150,150);
+        }
+        .r-btn i, .l-btn i{
+            color: rgb(54,54,54);
+            position:absolute;
+            font-size: 30px;
+            top:35%;
+            left:12%;
+            right:12%;
+        }
+        .slide-sec h3{
+            font-size: 20px;
+            margin-top:5px;
+            margin-bottom: 0;
+        }
+        .product-slide.product-slide-1{
+            display: flex;
+            margin-top: 35px;
+            overflow-x: scroll;
+            scroll-behavior: smooth;
+        }
+        .box-d a{
+            padding-top: 10px;
+        }
+        .box-d div img{
+            width:155px;
+            height:110px;
+            margin-left: 5px;
+            margin-right: 0px;
+        }
+        .box-d div span{
+            margin-bottom: 11px;
+        }
+        .footer{
+            width:100%;
+            height:450px;
+            transition: all 0.2s;
+        }
+        .backtop{
+            text-align: center;
+            height:50px;
+            background-color: #37475a;
+            padding:15px;
+            cursor: pointer;
+        }
+        .backtop span{
+            color:white;
+            font-weight: bold;
+        }
+        .backtop:hover{
+            background-color: #4d627c;
+        }
+        .detail{
+            background-color: #232f3e;
+            height:375px;
+        }
+        .table{
+            margin:0 150px;
+            height:100%;
+            display: flex;
+            justify-content: space-around;
+            padding-top:50px;
+        }
+        .table div{
+            width:230px;
+        }
+        .t-head{
+            font-size: 16px;
+            color:white;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .table li{
+            color: rgb(223,221,221);
+            padding-top:10px;
+            font-weight: lighter;
+            list-style: none;
+            font-size: 14px;
+        }
+        .copy{
+            background-color: #232f3e;
+            height: 90px;
+            padding:40px;
+            text-align: center;
+        }
+        .copy span{
+            color:white;
+            font-size: 14px;
+        }
+        .line{
+            height:0.4px;
+            width:100%;
+            background-color: rgb(172,172,172);
+
+        }
+        .sidebar{
+            background-color: white;
+            width:330px;
+            height:100%;
+            transform: translateX(-390px);
+            transition: all 0.5s;
+            height:100%;
+            position:absolute;
+            z-index:101;
+            overflow-y: scroll;
+            box-shadow: 2px 2px 30px black;
+        }
+        .hdn-head{
+            background-color: #232f3e;
+            height:60px;
+            width:100%;
+            color:white;
+            text-align: center;
+        }
+        .hdn-head h2{
+            line-height: 60px;
+        }
+        .hdn-content h3{
+            padding:20px 25px;
+            color:rgb(39,39,39);
+        }
+        .hdn-content ul div{
+            display: flex;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: rgb(70,70,70);
+            font-size: 14px;
+            padding:15px 25px;
+            justify-content: space-between;
+        }
+        .fa-xmark {
+            top:20px;
+            left:350px;
+            position:absolute;
+            display: none;
+            font-size: 30px;
+            z-index:101;
+            cursor: pointer;
+        }
+        .fa-angle-right{
+            color:rgb(27,27,27);
+        }
+        .hdn-content ul div:hover{
+            background-color: rgb(230,227,227);
+        }
+        .hdn-content ul{
+            padding-bottom: 9px;
+        }
+        .black{
+            height:100%;
+            position: absolute;
+            background-color: rgba(0,0,0,0.7);
+
+        }
+        .black.active{
+            width:100%;
+            z-index: 100;
+        }
+        .black.active-1{
+            top:70px;
+            width:100%;
+            z-index:99;
+        }
+        .sidebar.active{
+            transform: translateX(0);
+        }
+        .fa-xmark.active{
+            display: block;
+        }
+        .hdn-sign.active{
+            display: block;
+        }
+        .triangle.active{
+            display: block;
+        }
+        .triangle{
+            position:absolute;
+            z-index:101;
+            display:none;
+            right:210px;
+            top:42px;
+            background-color: transparent;
+            width:0;
+            height:0;
+            display:none;
+            transition:all 2s;
+            border:10px solid blue;
+            border-color: transparent transparent white transparent;
+        }
+        .hdn-sign{
+            position: absolute;
+            z-index:101;
+            transition: all 2s;
+            display: none;
+            width:500px;
+            height: 350px;
+            top:60px;
+            right:80px;
+            background-color: white;
+            border-radius: 5px;
+        }
+        .hdn-table{
+            display: flex;
+            justify-content: space-around;
+            padding:20px 0;
+        }
+        .hdn-table h3{
+            font-size: 16px;
+            padding:10px 0;
+        }
+        .hdn-table li{
+            color: rgb(84,84,84);
+            font-size: 13px;
+            padding:5px 0;
+            cursor: pointer;
+        }
+        
+    .first{
+        width:100%;
+        height:65px;
+        background-color: #131a22;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    .first img{
+        width:100px;
+        padding:5px;
+        margin: 6px 10px;
+        border: 1px solid transparent;
+    }
+    .first{
+        display:flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .flex{
+        display: flex;
+        justify-content: center;
+    }
+    .flex span,i{
+        color:white;
+    }
+    .logo{
+        flex:0.18;
+        margin-right:8px;
+        justify-content: space-between;
+    }
+    .map{
+        border: 1px solid transparent;
+    }
+
+    .map i{
+        margin-top: 15px;
+        padding-left: 5px;
+        font-size: 17px;
+    }
+    .map div{
+        padding: 5px;
+        display: flex;
+        cursor: pointer;
+        flex-direction: column;
+    }
+    .map div span:first-child{
+        font-weight: 400;
+        font-size: 13px;
+    }
+    .map div span{
+        font-weight: bold;
+    }
+    .right{
+        justify-content: space-between;
+        flex: 0.30;
+        margin-right: 10px;
+        align-items: center;
+    }
+    .input{
+        width:100%;
+        background-color: white;
+        flex:0.5;
+        border-radius: 5px;
+        display: flex;
+        margin: 0 10px;
+        align-items: center;
+        justify-content: space-between;
+        overflow: hidden;
+    }
+    .input input{
+        outline-color: transparent;
+        width:80%;
+        font-size: 15px;
+        padding: 5px 2px;
+        border: none;
+    }
+    .input .fa-search{
+        color: rgb(51,51,51);
+        padding: 10px 15px;
+        font-size: 25px;
+        cursor: pointer;
+        background-color: #febd69;
+        border-radius: 0 5px 5px 0;
+    }
+    .input div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-right: 1px solid gray;
+        background-color: rgb(236,234,234);
+        padding:5px 0;
+    }
+    .input div span{
+        border-radius: 5px 0 0 5px;
+        color: rgb(51,51,51);
+        padding: 7px 5px;
+        font-size: 13px;
+        cursor: pointer;
+    }
+    .input .fa-caret-down{
+        color: rgb(51,51,51);
+        cursor: pointer;
+        padding:5px;
+    }
+    .lang i{
+        margin:0;
+        padding: 0;
+        color:gray;
+    }
+    .lang{
+        padding: 2px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        border:1px solid transparent;
+    }
+    .right img{
+        width:35px;
+        height:35px;
+        padding:2px;
+        padding-top: 10px;
+        margin:0;
+        cursor: pointer;
+    }
+    .sign{
+        display: flex;
+        flex-direction: column;
+        padding:3px 6px;
+        border: 1px solid transparent;
+        cursor:pointer;
+    }
+    .sign span:first-child{
+        font-weight: 400;
+        font-size: 13px;
+    }
+    .sign span{
+        display:inline-block;
+        width:100%;
+        font-weight: bold;
+    }
+    .flex .ac span{
+        font-size: 15px;
+        margin-right: 4px;
+        font-weight: bold;
+    }
+    .fa-shopping-cart{
+        font-size: 27px;
+    }
+    .ca{
+        font-size: 14px;
+        font-weight: bold;
+    }
+    .cart{
+        align-items: flex-end;
+        position:relative;
+        padding:5px 10px;
+        border: 1px solid transparent;
+        cursor: pointer;
+    }
+    .cart p{
+        position: absolute;
+        font-weight: bolder;
+        color:#131a22;
+        top: 7px;
+        left:20px;
+    }
+    .cart:hover{
+        border: 1px solid white;
+        border-radius: 3px;
+    }
+    .logo img:hover{
+        border: 1px solid white;
+        border-radius: 3px;
+    }
+    .map:hover{
+        border: 1px solid white;
+        border-radius: 3px;
+    }
+    .lang:hover{
+        border: 1px solid white;
+        border-radius: 3px;
+    }
+    .sign:hover{
+        border: 1px solid white;
+        border-radius: 3px;
+    }
+    .lang:hover{
+        border: 1px solid white;
+        border-radius: 3px;
+    }
+    .input .fa-search:hover{
+        background-color: #fdae46;
+    }
+    .input div:hover{
+        background-color: rgb(204,202,202);
+        color:black;
+    }
+    .second{
+        width:100%;
+        height:42px;
+        background-color: #232f3e;
+        display: flex;
+        align-items: center;
+        color:white;
+        overflow: hidden;;
+    }
+    .second ul{
+        align-items: center;
+        list-style: none;
+        display: flex;
+        justify-content: flex-start;
+    }
+    .second span{
+        font-size: 15px;
+    }
+    .second-1 div i{
+        font-size: 20px;
+        cursor: pointer;
+        border: 1px solid transparent;
+    }
+    .second li{
+        padding:5px 10px;
+        font-size: 15px;
+        margin: 7px 0;
+        cursor: pointer;
+        border: 1px solid transparent;
+    }
+    .second-1{
+        flex:0.06;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .second-1 div{
+        display: flex;
+        align-items: center;
+        padding-left: 5px;
+    }
+    .second-2{
+        display: flex;
+        flex:0.74;
+        justify-content: flex-start;
+    }
+    .second-3{
+        flex:0.2;
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 20px;
+        overflow: hidden;
+    }
+    .second-3 span{
+        padding:5px 10px;
+        cursor: pointer;
+        border: 1px solid transparent;
+    }
+    .second-1 div span{
+        padding:5px;
+        cursor: pointer;
+    }
+    .second-1 div:hover{
+        border:1px solid white;
+    }
+    .second-2 li:hover{
+        border:1px solid white;
+    }
+    .second-3 span:hover{
+        border:1px solid white;
+    }
+        /* Add custom styles here, if needed */
+        .language-form {
+      display: inline-block;
+    }
+    .language-label {
+      display: inline-block;
+      margin-right: 5px;
+    }
+    .language-select {
+      display: inline-block;
+    }
+
+    </style>
+
+    <body>
+
+
+
+
+
+
+
+
+
+        <!-- 4444444444444444444444444444444444444444444444 -->
+
+        <!-- <header>
+            <div class="first">
+                <div class="flex logo">
+                <a href="#"><img src="media/images/logo.png" alt=""></a>
+                <div class="map flex">
+                    <i class="fas fa-map-marker"></i>
+                    <div>
+                        <span>Deliver to</span>
+                        <span>India</span>
+                    </div>
+                </div>
+            </div>
+            <div class="flex input">
+                <div>
+                    <span>All</span>
+                    <i class="fas fa-caret-down"></i>
+                </div>
+                <input type="text">
+                <i class="fas fa-search"></i>
+            </div>
+            <div class="flex right">
+                <div class="flex lang">
+                    <img src="media/images/usflag.jpg" alt="">
+                    <i class="fas fa-caret-down"></i>
+                </div>
+                <div class="sign">
+                    <span>Hello, Sign in</span>
+                    <div class="flex ac">
+                        <span>Accounts & Lists</span>
+                        <i class="fas fa-caret-down"></i>
+                    </div>
+                </div>
+                <div class="sign">
+                    <span>Returns</span>
+                    <span>& Orders</span>
+                </div>
+                <div class="flex cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="ca">Cart</span>
+                </div>
+            </div>
+        </div>
+        <div class="second">
+            <div class="second-1">
+                <div>
+                    <i class="fas fa-bars"></i>
+                    <span>All</span>
+                </div>
+            </div>
+            <div class="second-2">
+                <ul>
+                    <li>Today's Deal</li>
+                    <li>Customer Service</li>
+                    <li>Registry</li>
+                    <li>Gift Cards</li>
+                    <li>Sell</li>
+                </ul>
+            </div>
+            <div class="second-3">
+                <span>Shop Valentine's Day</span>
+            </div>
+        </div>
+        </header> -->
+
+
+
+
+
+
+
+        <!-- 33333333333333333333333333333333333333333333 -->
+        <nav class="py-6 px-6 flex justify-between items-center border-b border-gray-200">
+            <a href="/" class="text-xl font-semibold"><img src="/media/mk.png"></a>
+   
+            
+            <!-- <a href="/" class="text-xl font-semibold">Mark</a> -->
+            <div class="space-x-6">
+                <a href="{% url 'item:new' %}" class="text-lg font-semibold hover:text-gray-500">New item</a>
+                <a href="{% url 'item:items' %}" class="text-lg font-semibold hover:text-gray-500">Browse</a>
+            
+                {% if request.user.is_authenticated %}
+                    <a href="{% url 'conversation:inbox' %}" class="px-6 py-3 text-lg font-semibold bg-teal-500 text-white rounded-xl hover:bg-teal-700">Inbox</a>
+                    <a href="{% url 'core:logout' %}" class="px-6 py-3 text-lg font-semibold bg-gray-500 text-white rounded-xl hover:bg-gray-700">Log out</a>
+                    <a href="{% url 'dashboard:index' %}" class="px-6 py-3 text-lg font-semibold bg-gray-500 text-white rounded-xl hover:bg-gray-700">Dashboard</a>
+                    {% else %}
+                    <a href="{% url 'core:signup' %}" class="px-6 py-3 text-lg font-semibold bg-teal-500 text-white rounded-xl hover:bg-teal-700">Sign up</a>
+                    <a href="{% url 'core:login' %}" class="px-6 py-3 text-lg font-semibold bg-gray-500 text-white rounded-xl hover:bg-gray-700">Log in</a>
+                {% endif %}
+            </div>
+         </nav>
+            
+            
+            
+            
+            
+            
+
+
+    <!-- #############################################################3 -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- class="sec-1" -->
+    <div class="sec-1"> 
+
+        <!-- <div class="container"> -->
+        <!-- <div class="container-1"> -->
+            <div class="mb-12 text-2xl text-center"> 
+                <p>You are on Mark.com. You can also shop on Mark India for millions of products with fast local delivery.</p><a href="https://www.amazon.in/?&ext_vrnc=hi&tag=googhydrabk1-21&ref=pd_sl_nxqtetlae_e&adgrpid=60571832564&hvpone=&hvptwo=&hvadid=486453138860&hvpos=&hvnetw=g&hvrand=12535176714638732243&hvqmt=e&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9061830&hvtargid=kwd-296458789801&hydadcr=14452_2154371&gclid=Cj0KCQjwnvOaBhDTARIsAJf8eVNJ6D0_UEAgzp9_IEK8-AtbwjPY81k1murdrRDI1PsbLEmGdhyqKDMaArp9EALw_wcB">Click here to go to Mark.in</a>
+            </div>
+            <div class="slider">
+                <div class="image-box">
+                    <div class="slide">
+                        <img src="media/images/si1.jpg" alt="">
+                    </div>
+                    <div class="slide">
+                        <img src="media/images/si2.jpg" alt="">
+                    </div>
+                    <div class="slide">
+                        <img src="media/images/si3.jpg" alt="">
+                    </div>
+                    <div class="slide">
+                        <img src="media/images/si4.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        <!-- </div> -->
+        
+        <!-- </div> -->
+    </div>
+
+    
+    
+    
+    
+    
+
+
+
+
+    <!-- ################################################################### -->
+
+
+
+
+
+
+
+
+        <div class="px-6 py-6">
+            {% block content %}
+            {% endblock %}
+        </div>
+
+        <footer class="py-6 px-6 flex justify-between bg-gray-800">
+            <div class="w-2/3 pr-10">
+                <h3 class="mb-5 font-semibold text-gray-400">About</h3>
+
+                <p class="text-lg text-gray-500">Lorem ipsum bla bla bla. Lorem ipsum bla bla bla. Lorem ipsum bla bla bla.</p>
+            </div>
+
+            <div class="w-1/3">
+                <h3 class="mb-5 font-semibold text-gray-400">Menu</h3>
+
+                <ul class="space-y-2">
+                    <li><a href="{% url 'core:about' %}" class="text-lg text-teal-500 hover:text-teal-700">About</a></li>
+                    <li><a href="{% url 'core:contact' %}" class="text-lg text-teal-500 hover:text-teal-700">Contact</a></li>
+                    <li><a href="#" class="text-lg text-teal-500 hover:text-teal-700">Privacy policy</a></li>
+                    <li><a href="#" class="text-lg text-teal-500 hover:text-teal-700">Term of use</a></li>
+                </ul>
+            </div>
+
+
+            <a href="#!">
+                <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x" style="color:#4267B2"></i>
+                <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                </span>
+                </a>
+
+        </footer>
+
+
+
+
+
+        <!-- {% load i18n static %}
+        {% get_current_language as LANGUAGE_CODE %}
+        {% get_available_languages as LANGUAGES %}
+        {% get_language_info_list for LANGUAGES as languages %}
+        <div class="btn-group">
+                        <button type="button" class="btn dropdown-toggle dropdown-icon" data-toggle="dropdown">
+                            <i class="fa fa-language"></i>
+                        </button>
+                        <div class="dropdown-menu" role="menu">
+                            {% for language in languages %}
+                                {% if language.code != LANGUAGE_CODE %}
+                                    <a class="dropdown-item" href="{% url 'set_language' %}" class="dropdown-item"
+                                       data-language-code="{{ language.code }}"> {{ language.name_local }}
+                                    </a>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div> -->
+
+
+
+
+            <form class="language-form" id="languageForm" method="post" action="{% url 'set_language' %}">
+                {% csrf_token %}
+                <label class="language-label" for="language">Lang:</label>
+                <select class="language-select" name="language" id="language" onchange="changeLanguage(this.value)">
+                    {% for lang_code, lang_name in LANGUAGES %}
+                        {% if lang_code == LANGUAGE_CODE %}
+                            <option value="{{ lang_code }}" selected>{{ lang_name }}</option>
+                        {% else %}
+                            <option value="{{ lang_code }}">{{ lang_name }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+            </form>
+
+            <script>
+                function changeLanguage(languageCode) {
+                const form = document.getElementById('languageForm');
+                form.elements.language.value = languageCode;
+                form.submit();
+                }
+            </script>
+    </body>
+</html>
