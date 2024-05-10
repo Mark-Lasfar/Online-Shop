@@ -73,7 +73,7 @@ def edit(request, pk):
 
 @login_required
 def delete(request, pk):
-    item = get_object_or_404(Item, pk=pk, created_by=request.user)
-    item.delete()
+    items = get_object_or_404(Item, pk=pk, created_by=request.user)
+    items.delete()
 
     return redirect('dashboard:index')
