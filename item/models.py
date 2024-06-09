@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
+# import uuid
 
 class Category(models.Model):
     name = models.CharField(max_length=255)
@@ -39,3 +40,4 @@ class Item(models.Model):
 
     def __str__(self):
         return self.name
+    

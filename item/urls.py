@@ -2,6 +2,11 @@ from django.urls import path
 
 from . import views
 
+
+# ######################3
+
+
+
 app_name = 'item'
 
 urlpatterns = [
@@ -10,5 +15,5 @@ urlpatterns = [
     path('<int:pk>/', views.detail, name='detail'),
     path('<int:pk>/delete/', views.delete, name='delete'),
     path('<int:pk>/edit/', views.edit, name='edit'),
-    # ...     car.specs = File(f, name=path.name)
+
 ]

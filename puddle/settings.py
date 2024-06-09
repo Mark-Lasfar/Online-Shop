@@ -9,9 +9,14 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-import pyarabic.araby as araby # type: ignore
-import pyarabic.number as number # type: ignore
+# import pyarabic.araby as araby # type: ignore
+# import pyarabic.number as number # type: ignore
 from pathlib import Path
+import os
+import postgres
+import dj_database_url
+# import psycopg2binary
+# from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -43,7 +48,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_rest_passwordreset',
+    # 'cart',
     'conversation',
+    # 'store',
     'core',
     'dashboard',
     'item',
@@ -86,13 +93,49 @@ WSGI_APPLICATION = 'puddle.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+
+
+
+
+# DATABASES = {
+#     "default":dj_database_url.parse(os.environ.get("postgres://mark:tL3rWSi6NDK3YurBjHOrbfwNnOmxzIyn@dpg-cphh4163e1ms73d89hdg-a.oregon-postgres.render.com/markdb"))
+# }
+
+
+DATABASE_URL = os.getenv('postgres://mark:tL3rWSi6NDK3YurBjHOrbfwNnOmxzIyn@dpg-cphh4163e1ms73d89hdg-a.oregon-postgres.render.com/markdb')
+DATABASES = {
+    'default': dj_database_url.config(),
+}
+
+
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+
     }
 }
 
+
+# DATABASES = {
+#     "default": dj_database_url.config("dj_database_url.parse(postgres://mark:tL3rWSi6NDK3YurBjHOrbfwNnOmxzIyn@dpg-cphh4163e1ms73d89hdg-a/markdb"),
+# #  
+# #    # "dashboard": dj_database_url.config(env="DATABASE_DASHBOARD_URL"),
+# }
+
+# DATABASES = {'default': dj_database_url.config('default=postgres://mark:tL3rWSi6NDK3YurBjHOrbfwNnOmxzIyn@dpg-cphh4163e1ms73d89hdg-a/markdb')}
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql_psycopg2",
+#         "NAME": "markdb",
+#         "USER": "mark",
+#         "PASSWORD": "tL3rWSi6NDK3YurBjHOrbfwNnOmxzIyn",
+#         "HOST": "dpg-cphh4163e1ms73d89hdg-a",
+#         "PORT": "5432",
+#     }
+# }
+# DATABASES = {'default'} = dj_database_url.parse(postgres://mark:tL3rWSi6NDK3YurBjHOrbfwNnOmxzIyn@dpg-cphh4163e1ms73d89hdg-a/markdb)
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators

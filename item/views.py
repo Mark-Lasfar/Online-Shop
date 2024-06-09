@@ -30,7 +30,7 @@ def detail(request, pk):
 
     return render(request, 'item/detail.html', {
         'item': item,
-        'related_items': related_items
+        'related_items': related_items,
     })
 
 @login_required
@@ -51,6 +51,17 @@ def new(request):
         'form': form,
         'title': 'New item',
     })
+
+
+
+
+#############################3
+
+
+
+#
+#########################3
+
 
 @login_required
 def edit(request, pk):
@@ -77,3 +88,5 @@ def delete(request, pk):
     items.delete()
 
     return redirect('dashboard:index')
+
+
