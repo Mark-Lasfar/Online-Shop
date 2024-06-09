@@ -13,7 +13,7 @@ aiosmb==0.4.4
 aiosqlite==0.17.0
 aiowinreg==0.0.7
 ajpy==0.0.5
-alembic==1.13.1.dev0
+alembic
 altgraph==0.17.4
 amqp==5.2.0
 aniso8601==9.0.1
