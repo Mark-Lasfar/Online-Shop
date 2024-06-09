@@ -32,7 +32,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", "False").lower == "true"
 
-ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split("  ")
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split('')
 
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
@@ -103,12 +103,6 @@ WSGI_APPLICATION = 'puddle.wsgi.application'
 # }
 
 
-DATABASE_URL = os.getenv('postgres://mark:tL3rWSi6NDK3YurBjHOrbfwNnOmxzIyn@dpg-cphh4163e1ms73d89hdg-a.oregon-postgres.render.com/markdb')
-DATABASES = {
-    'default': dj_database_url.config(),
-}
-
-
 
 DATABASES = {
     'default': {
@@ -118,6 +112,8 @@ DATABASES = {
     }
 }
 
+database_url = os.get('DATABASE_URL')
+DATABASES ['default'] = dj_database_url.parse(database_url)
 
 # DATABASES = {
 #     "default": dj_database_url.config("dj_database_url.parse(postgres://mark:tL3rWSi6NDK3YurBjHOrbfwNnOmxzIyn@dpg-cphh4163e1ms73d89hdg-a/markdb"),
