@@ -26,13 +26,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("SECRET_KEY")
 # 'django-insecure-j4ippt+3h39u4ontllpc8a(4h&^god(7aicz#@q^sl_(w)2otp'
+SECRET_KEY = 'django-insecure-j4ippt+3h39u4ontllpc8a(4h&^god(7aicz#@q^sl_(w)2otp'
+
+# s.environ.get("SECRET_KEY")
+
+# 
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", "False").lower == "true"
-
-ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split('')
+# DEBUG = True
+ALLOWED_HOSTS = os.environ.get('online-shop-lg9d.onrender.com').split(' ')
+# os.environ.get("ALLOWED_HOSTS").split('')
 
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
@@ -98,9 +103,6 @@ WSGI_APPLICATION = 'puddle.wsgi.application'
 
 
 
-# DATABASES = {
-#     "default":dj_database_url.parse(os.environ.get("postgres://mark:tL3rWSi6NDK3YurBjHOrbfwNnOmxzIyn@dpg-cphh4163e1ms73d89hdg-a.oregon-postgres.render.com/markdb"))
-# }
 
 
 
@@ -112,9 +114,12 @@ DATABASES = {
     }
 }
 
-database_url = os.get('DATABASE_URL')
-DATABASES ['default'] = dj_database_url.parse(database_url)
-
+# DATABASES = {
+#     "default":dj_database_url.parse(os.environ.get("postgres://mark:tL3rWSi6NDK3YurBjHOrbfwNnOmxzIyn@dpg-cphh4163e1ms73d89hdg-a.oregon-postgres.render.com/markdb"))
+# }
+# database_url = os.get('DATABASE_URL')
+# DATABASES ['default'] = dj_database_url.parse(database_url)
+DATABASES = {'default': dj_database_url.parse('postgres://mark:tL3rWSi6NDK3YurBjHOrbfwNnOmxzIyn@dpg-cphh4163e1ms73d89hdg-a/markdb')}
 # DATABASES = {
 #     "default": dj_database_url.config("dj_database_url.parse(postgres://mark:tL3rWSi6NDK3YurBjHOrbfwNnOmxzIyn@dpg-cphh4163e1ms73d89hdg-a/markdb"),
 # #  
