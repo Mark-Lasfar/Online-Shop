@@ -36,7 +36,7 @@ SECRET_KEY = 'django-insecure-j4ippt+3h39u4ontllpc8a(4h&^god(7aicz#@q^sl_(w)2otp
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", "False").lower == "true"
 # DEBUG = True
-ALLOWED_HOSTS = os.environ.get('online-shop-lg9d.onrender.com').split(' ')
+ALLOWED_HOSTS = os.environ.get('online-shop-lg9d.onrender.com')#.split(' ')
 # os.environ.get("ALLOWED_HOSTS").split('')
 
 LOGIN_URL = '/login/'
