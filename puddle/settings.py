@@ -33,15 +33,15 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'RENDER' not in os.environ
-#DEBUG = os.environ.get("DEBUG", "False").lower == "true"
+#DEBUG = 'RENDER' not in os.environ
+DEBUG = os.environ.get("DEBUG", "False").lower == "true"
 # DEBUG = True
 #ALLOWED_HOSTS =  os.environ.get("ALLOWED_HOSTS").split('')
 ALLOWED_HOSTS = []
 
-RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
-if RENDER_EXTERNAL_HOSTNAME:
-    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+#RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+#if RENDER_EXTERNAL_HOSTNAME:
+   # ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 # os.environ.get('online-shop-lg9d.onrender.com').split(' ')
 
 LOGIN_URL = '/login/'
@@ -123,7 +123,7 @@ DATABASES = {
     'default': dj_database_url.config(
         # Replace this value with your local database's connection string.
         default='postgres://mark:tL3rWSi6NDK3YurBjHOrbfwNnOmxzIyn@dpg-cphh4163e1ms73d89hdg-a/markdb',
-        conn_max_age=600
+        #conn_max_age=600
     )
 }
 # DATABASES = {
