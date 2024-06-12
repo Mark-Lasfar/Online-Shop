@@ -20,8 +20,8 @@ aniso8601==9.0.1
 anyio
 anyjson
 apispec
-apispec-webframeworks==0.5.2
-appdirs==1.4.4
+apispec-webframeworks
+appdirs
 arc4
 argcomplete
 arrow
@@ -31,9 +31,9 @@ asn1crypto
 asn1tools
 asttokens
 asyauth
-async-timeout==4.0.3
-asysocks==0.2.2
-attrs==23.2.0
+async-timeout
+asysocks
+attrs
 autobahn==22.7.1
 autocommand==2.2.2
 Automat==22.10.0
