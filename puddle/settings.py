@@ -9,8 +9,7 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-import pyarabic.araby as araby # type: ignore
-import pyarabic.number as number # type: ignore
+
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -42,18 +41,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_rest_passwordreset',
     'conversation',
     'core',
     'dashboard',
     'item',
-    # 'ckeditor'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -73,7 +69,6 @@ TEMPLATES = [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
-                'django.template.context_processors.i18n',
                 'django.contrib.messages.context_processors.messages',
             ],
         },
@@ -116,33 +111,13 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-
-
 LANGUAGE_CODE = 'en-us'
-
-
-
-
-
-
 
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
-USE_L10N = True
-
 USE_TZ = True
-
-LANGUAGES = [
-    ('en', ('English')),  # Example: English
-    ('es', ('Spanish')),  # Example: Spanish
-    ('fr', ('French')),  # Example: Spanish
-    ('hi', ('Hindi')),  # Example: Spanish
-    ('ar', ('Arabic')),  # Example: Spanish
-    ('ar', 'عربي'),
-]
-
 
 
 # Static files (CSS, JavaScript, Images)
@@ -156,15 +131,3 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
-
-# EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_POST = 587
-# EMAIL_USE_TLS = True
-# EMAIL_HOST_USER =''
-# EMAIL_HOST_PASSWORD =''
-
-
-# CKEDITOR_UPLOAD_PATH = "uploads/"
