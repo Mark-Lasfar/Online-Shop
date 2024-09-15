@@ -9,14 +9,9 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-# import pyarabic.araby as araby # type: ignore
-# import pyarabic.number as number # type: ignore
+import pyarabic.araby as araby # type: ignore
+import pyarabic.number as number # type: ignore
 from pathlib import Path
-import os
-import postgres
-import dj_database_url
-# import psycopg2binary
-# from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,23 +21,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# 'django-insecure-j4ippt+3h39u4ontllpc8a(4h&^god(7aicz#@q^sl_(w)2otp'
-SECRET_KEY = os.environ.get("SECRET_KEY")
-# 'django-insecure-j4ippt+3h39u4ontllpc8a(4h&^god(7aicz#@q^sl_(w)2otp'
-
-# 
+SECRET_KEY = 'django-insecure-j4ippt+3h39u4ontllpc8a(4h&^god(7aicz#@q^sl_(w)2otp'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = 'RENDER' not in os.environ
-DEBUG = os.environ.get("DEBUG", "False").lower == "true"
-# DEBUG = True
-#ALLOWED_HOSTS =  os.environ.get("ALLOWED_HOSTS").split('')
-ALLOWED_HOSTS = []
+DEBUG = True
 
-#RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
-#if RENDER_EXTERNAL_HOSTNAME:
-   # ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
-# os.environ.get('online-shop-lg9d.onrender.com').split(' ')
+ALLOWED_HOSTS = []
 
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
@@ -59,9 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_rest_passwordreset',
-    # 'cart',
     'conversation',
-    # 'store',
     'core',
     'dashboard',
     'item',
@@ -104,52 +86,13 @@ WSGI_APPLICATION = 'puddle.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-
-
-
-
-
-
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
-
     }
 }
 
-DATABASES = {
-    'default': dj_database_url.config(
-        # Replace this value with your local database's connection string.
-        default='postgres://mark:tL3rWSi6NDK3YurBjHOrbfwNnOmxzIyn@dpg-cphh4163e1ms73d89hdg-a/markdb',
-        #conn_max_age=600
-    )
-}
-# DATABASES = {
-#     "default":dj_database_url.parse(os.environ.get("postgres://mark:tL3rWSi6NDK3YurBjHOrbfwNnOmxzIyn@dpg-cphh4163e1ms73d89hdg-a.oregon-postgres.render.com/markdb"))
-# }
-# database_url = os.get('DATABASE_URL')
-# DATABASES ['default'] = dj_database_url.parse(database_url)
-#DATABASES = {'default': dj_database_url.parse('postgres://mark:tL3rWSi6NDK3YurBjHOrbfwNnOmxzIyn@dpg-cphh4163e1ms73d89hdg-a/markdb')}
-# DATABASES = {
-#     "default": dj_database_url.config("dj_database_url.parse(postgres://mark:tL3rWSi6NDK3YurBjHOrbfwNnOmxzIyn@dpg-cphh4163e1ms73d89hdg-a/markdb"),
-# #  
-# #    # "dashboard": dj_database_url.config(env="DATABASE_DASHBOARD_URL"),
-# }
-
-# DATABASES = {'default': dj_database_url.config('default=postgres://mark:tL3rWSi6NDK3YurBjHOrbfwNnOmxzIyn@dpg-cphh4163e1ms73d89hdg-a/markdb')}
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.postgresql_psycopg2",
-#         "NAME": "markdb",
-#         "USER": "mark",
-#         "PASSWORD": "tL3rWSi6NDK3YurBjHOrbfwNnOmxzIyn",
-#         "HOST": "dpg-cphh4163e1ms73d89hdg-a",
-#         "PORT": "5432",
-#     }
-# }
-# DATABASES = {'default'} = dj_database_url.parse(postgres://mark:tL3rWSi6NDK3YurBjHOrbfwNnOmxzIyn@dpg-cphh4163e1ms73d89hdg-a/markdb)
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -220,8 +163,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # EMAIL_HOST = 'smtp.gmail.com'
 # EMAIL_POST = 587
 # EMAIL_USE_TLS = True
-# EMAIL_HOST_USER ='marklasfar@gmail.com'
-# EMAIL_HOST_PASSWORD ='ibrahim691458'
+# EMAIL_HOST_USER =''
+# EMAIL_HOST_PASSWORD =''
 
 
 # CKEDITOR_UPLOAD_PATH = "uploads/"
